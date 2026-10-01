@@ -128,4 +128,7 @@ barplot(t(smoking_prop),
         main = "Smoking status by snoring status")
 ```
 
-
+```{r}
+# Statistical analysis
+fisher.test(table(Snore$snore, Snore$tabac))
+```
