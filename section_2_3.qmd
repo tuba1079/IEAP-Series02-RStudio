@@ -198,3 +198,12 @@ barplot(t(smoking_by_sex),
         ylab = "Proportion",
         main = "Smoking status by sex")
 ```
+```{r}
+# Statistical analysis
+# Test the association between sex and smoking status
+fisher.test(table(Snore$sex, Snore$tabac))
+```
+
+**Result – Smoking habits among women and men**
+
+The proportion of smokers was 40% among women and 72% among men. Fisher's exact test revealed a statistically significant association between sex and smoking status (p = 0.007276). These results indicate that women had a lower smoking prevalence than men in this sample, providing statistical support for the stereotype that women smoke less.
