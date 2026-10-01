@@ -1,6 +1,32 @@
 ---
 title: "Testing some stereotypes"
 format: pdf
-editor: visual
+Author: Tuba
 ---
 
+## 2.3: Testing some stereotypes
+
+### Loading the data
+
+```{r}
+# Import the dataset
+Snore <- read.delim("snore.txt", header = TRUE)
+
+head(Snore)
+str(Snore) # structure of the dataset
+summary(Snore)
+```
+
+```{r}
+# Check the categories of categorical variables
+unique(Snore$sex)
+unique(Snore$snore)
+unique(Snore$tabac)
+```
+
+```{r}
+# Count observations in each category
+table(Snore$sex)
+table(Snore$snore)
+table(Snore$tabac)
+```
