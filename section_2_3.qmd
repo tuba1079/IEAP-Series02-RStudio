@@ -158,3 +158,18 @@ boxplot(weight ~ sex,
 tapply(Snore$weight, Snore$sex, median)
 
 ```
+```{r}
+# Statistical analysis
+
+# Check normality of weight in women and men
+shapiro.test(Snore$weight[Snore$sex == "F"])
+
+shapiro.test(Snore$weight[Snore$sex == "H"])
+
+# Compare weight between women and men
+wilcox.test(weight ~ sex,
+            data = Snore,
+            exact = FALSE)
+```
+
+**Result – Weight comparison between men and women** The median weight was 97 among women and 94 among men. The Wilcoxon rank-sum test showed no statistically significant difference in weight between women and men (W = 893.5, p = 0.729). Thus, the data do not provide statistical evidence supporting the stereotype that men are heavier than women.
