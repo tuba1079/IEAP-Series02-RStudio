@@ -99,5 +99,8 @@ wilcox.test(alcool ~ snore,
             data = Snore,
             exact = FALSE)
 ```
+**Result – Alcohol consumption**
+
+The mean recorded alcohol value was 2.37 among non-snorers and 4.03 among snorers, while the respective medians were 0 and 4. The Wilcoxon rank-sum test revealed a statistically significant difference between the two groups (W = 788, p = 0.008594). Snorers therefore had higher recorded alcohol values in this sample.
 
 
