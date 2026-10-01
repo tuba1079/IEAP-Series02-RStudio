@@ -207,3 +207,47 @@ fisher.test(table(Snore$sex, Snore$tabac))
 **Result – Smoking habits among women and men**
 
 The proportion of smokers was 40% among women and 72% among men. Fisher's exact test revealed a statistically significant association between sex and smoking status (p = 0.007276). These results indicate that women had a lower smoking prevalence than men in this sample, providing statistical support for the stereotype that women smoke less.
+
+### General analysis: Correlations between variables
+
+```{r}
+# select numerical variables 
+numerical_data <- Snore[, c("age", "weight", "height", "alcool")]
+```
+
+```{r}
+# Calculate correlation matrix for selected numerical variables
+cor_matrix <- cor(Snore[, c("age", "weight", "height", "alcool")],
+                  use = "complete.obs")
+
+# visualise pairwise relationships between numerical variables
+pairs(Snore[, c("age", "weight", "height", "alcool")],
+      main = "Relationships between numerical variables")
+```
+```{r}
+#Statistical analysis: Spearman correlations
+# Calculate the Spearman correlation matrix
+spearman_matrix <- cor(numerical_data,
+                       method = "spearman",
+                       use = "complete.obs")
+
+# Display Spearman correlation coefficients
+spearman_matrix
+
+# Test each pairwise Spearman correlation
+correlation_pairs <- combn(names(numerical_data),
+                            2,
+                            simplify = FALSE)
+
+for (pair in correlation_pairs) {
+  cat("\nCorrelation between", pair[1], "and", pair[2], "\n")
+
+  print(cor.test(numerical_data[[pair[1]]],
+                 numerical_data[[pair[2]]],
+                 method = "spearman",
+                 exact = FALSE))
+}
+
+```
+
+**Result – Correlation analysis** Spearman's correlation analysis revealed a very strong positive association between weight and height (rho = 0.930, p less than 0.001). This indicates that taller individuals tended to have higher body weight in this sample. No statistically significant correlations were observed between the other pairs of numerical variables (all p-values greater than 0.05). Overall, weight and height showed the strongest relationship among the variables examined.
