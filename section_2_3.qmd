@@ -30,3 +30,22 @@ table(Snore$sex)
 table(Snore$snore)
 table(Snore$tabac)
 ```
+### First stereotype: Are snorers fatter?
+
+```{r}
+### Are snorers fatter?
+
+# Compare weight between snorers and non-snorers
+boxplot(weight ~ snore,
+        data = Snore,
+        xlab = "Snoring category",
+        ylab = "Weight",
+        main = "Weight comparison between snorers and non-snorers")
+```
+
+```{r}
+# Calculate median weight in each group
+tapply(Snore$weight, Snore$snore, median)
+```
+
+
