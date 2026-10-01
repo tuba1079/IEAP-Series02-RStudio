@@ -132,3 +132,6 @@ barplot(t(smoking_prop),
 # Statistical analysis
 fisher.test(table(Snore$snore, Snore$tabac))
 ```
+**Result – Smoking habits among snorers and non-snorers**
+
+Among non-snorers, 67.7% were smokers, compared with 57.1% among snorers.Fisher's exact test is appropriate because both variables are categorical. The test did not reveal a statistically significant association between snoring and smoking status (p = 0.3827). Therefore, the data do not provide sufficient statistical evidence to conclude that snorers are more likely to smoke.
