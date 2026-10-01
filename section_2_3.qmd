@@ -1,0 +1,253 @@
+---
+title: "Testing some stereotypes"
+format: pdf
+Author: Tuba
+---
+
+## 2.3: Testing some stereotypes
+
+### Loading the data
+
+```{r}
+# Import the dataset
+Snore <- read.delim("snore.txt", header = TRUE)
+
+head(Snore)
+str(Snore) # structure of the dataset
+summary(Snore)
+```
+
+```{r}
+# Check the categories of categorical variables
+unique(Snore$sex)
+unique(Snore$snore)
+unique(Snore$tabac)
+```
+
+```{r}
+# Count observations in each category
+table(Snore$sex)
+table(Snore$snore)
+table(Snore$tabac)
+```
+### First stereotype: Are snorers fatter?
+
+```{r}
+### Are snorers fatter?
+
+# Compare weight between snorers and non-snorers
+boxplot(weight ~ snore,
+        data = Snore,
+        xlab = "Snoring category",
+        ylab = "Weight",
+        main = "Weight comparison between snorers and non-snorers")
+```
+
+```{r}
+# Calculate median weight in each group
+tapply(Snore$weight, Snore$snore, median)
+```
+```{r}
+# Statistical analysis
+# Check normality of weight in each snoring group
+shapiro.test(Snore$weight[Snore$snore == "N"])
+shapiro.test(Snore$weight[Snore$snore == "O"])
+
+# Compare weight between the two independent groups
+wilcox.test(weight ~ snore,
+            data = Snore,
+            exact = FALSE)
+```
+
+**Result – Weight comparison** 
+The median weight was 94 among non-snorers and 96 among snorers. The Wilcoxon rank-sum test showed no statistically significant difference in weight between the two groups (W = 1154, p = 0.9079). Therefore, this dataset does not provide statistical evidence supporting the stereotype that snorers are heavier.
+
+
+### Second Stereotype: Are snorers drinking or smoking more?
+
+```{r}
+# Compare alcohol categories between snorers and non-snorers
+table(Snore$snore, Snore$alcool)
+
+# Calculate the proportion of each alcohol category within each snoring group
+alcohol_prop <- prop.table(table(Snore$snore, Snore$alcool), 1)
+
+# Display proportions
+alcohol_prop
+
+# Visualise alcohol categories by snoring status
+barplot(t(alcohol_prop),
+        beside = TRUE,
+        legend.text = TRUE,
+        args.legend = list(title = "Alcohol category"),
+        xlab = "Snoring status",
+        ylab = "Proportion",
+        main = "Alcohol categories by snoring status")
+
+# Calculate mean and median alcohol values for each group
+tapply(Snore$alcool, Snore$snore, mean)
+tapply(Snore$alcool, Snore$snore, median)
+```
+```{r}
+# Statistical analysis
+# Check normality of alcohol values in each snoring group
+shapiro.test(Snore$alcool[Snore$snore == "N"])
+shapiro.test(Snore$alcool[Snore$snore == "O"])
+
+# Compare alcohol values between the two independent groups
+wilcox.test(alcool ~ snore,
+            data = Snore,
+            exact = FALSE)
+```
+**Result – Alcohol consumption**
+
+The mean recorded alcohol value was 2.37 among non-snorers and 4.03 among snorers, while the respective medians were 0 and 4. The Wilcoxon rank-sum test revealed a statistically significant difference between the two groups (W = 788, p = 0.008594). Snorers therefore had higher recorded alcohol values in this sample.
+```{r}
+# Are snorers more likely to smoke?
+
+# Compare smoking categories by snoring status
+table(Snore$snore, Snore$tabac)
+```
+
+```{r}
+# Proportion of smoking categories in each snoring group
+smoking_prop <- prop.table(
+  table(Snore$snore, Snore$tabac), 1
+)
+
+# Display proportions
+smoking_prop
+
+# Create a bar plot
+barplot(t(smoking_prop),
+        beside = TRUE,
+        legend.text = c("Non-smokers (N)", "Smokers (O)"),
+        args.legend = list(title = "Tobacco status"),
+        xlab = "Snoring status",
+        ylab = "Proportion",
+        main = "Smoking status by snoring status")
+```
+
+```{r}
+# Statistical analysis
+fisher.test(table(Snore$snore, Snore$tabac))
+```
+**Result – Smoking habits among snorers and non-snorers**
+
+Among non-snorers, 67.7% were smokers, compared with 57.1% among snorers.Fisher's exact test is appropriate because both variables are categorical. The test did not reveal a statistically significant association between snoring and smoking status (p = 0.3827). Therefore, the data do not provide sufficient statistical evidence to conclude that snorers are more likely to smoke.
+
+### Third Stereotype: Are men fatter?
+
+```{r}
+# count observations in each sex category
+table(Snore$sex)
+unique(Snore$sex)
+```
+
+```{r}
+# create the boxplot to look at the difference of both gender's weight
+boxplot(weight ~ sex,
+        data = Snore,
+        xlab = "Sex",
+        ylab = "Weight",
+        main = "Weight comparison between men and women")
+```
+
+```{r}
+# calculate median weight in each sex category
+tapply(Snore$weight, Snore$sex, median)
+
+```
+```{r}
+# Statistical analysis
+
+# Check normality of weight in women and men
+shapiro.test(Snore$weight[Snore$sex == "F"])
+
+shapiro.test(Snore$weight[Snore$sex == "H"])
+
+# Compare weight between women and men
+wilcox.test(weight ~ sex,
+            data = Snore,
+            exact = FALSE)
+```
+
+**Result – Weight comparison between men and women** The median weight was 97 among women and 94 among men. The Wilcoxon rank-sum test showed no statistically significant difference in weight between women and men (W = 893.5, p = 0.729). Thus, the data do not provide statistical evidence supporting the stereotype that men are heavier than women.
+
+### Fourth Stereotype: Do women smoke less?
+
+```{r}
+# compare smoking status between men and women
+table(Snore$sex, Snore$tabac)
+```
+
+```{r}
+# calculate proportions
+smoking_by_sex <- prop.table(table(Snore$sex, Snore$tabac), 1)
+
+smoking_by_sex
+```
+
+```{r}
+# create the bar plot to look at the difference of both gender's smoking status
+barplot(t(smoking_by_sex),
+        beside = TRUE,
+        legend.text = c("Non-smokers (N)", "Smokers (O)"),
+        args.legend = list(title = "Tobacco status"),
+        xlab = "Sex",
+        ylab = "Proportion",
+        main = "Smoking status by sex")
+```
+```{r}
+# Statistical analysis
+# Test the association between sex and smoking status
+fisher.test(table(Snore$sex, Snore$tabac))
+```
+
+**Result – Smoking habits among women and men**
+
+The proportion of smokers was 40% among women and 72% among men. Fisher's exact test revealed a statistically significant association between sex and smoking status (p = 0.007276). These results indicate that women had a lower smoking prevalence than men in this sample, providing statistical support for the stereotype that women smoke less.
+
+### General analysis: Correlations between variables
+
+```{r}
+# select numerical variables 
+numerical_data <- Snore[, c("age", "weight", "height", "alcool")]
+```
+
+```{r}
+# Calculate correlation matrix for selected numerical variables
+cor_matrix <- cor(Snore[, c("age", "weight", "height", "alcool")],
+                  use = "complete.obs")
+
+# visualise pairwise relationships between numerical variables
+pairs(Snore[, c("age", "weight", "height", "alcool")],
+      main = "Relationships between numerical variables")
+```
+```{r}
+#Statistical analysis: Spearman correlations
+# Calculate the Spearman correlation matrix
+spearman_matrix <- cor(numerical_data,
+                       method = "spearman",
+                       use = "complete.obs")
+
+# Display Spearman correlation coefficients
+spearman_matrix
+
+# Test each pairwise Spearman correlation
+correlation_pairs <- combn(names(numerical_data),
+                            2,
+                            simplify = FALSE)
+
+for (pair in correlation_pairs) {
+  cat("\nCorrelation between", pair[1], "and", pair[2], "\n")
+
+  print(cor.test(numerical_data[[pair[1]]],
+                 numerical_data[[pair[2]]],
+                 method = "spearman",
+                 exact = FALSE))
+}
+
+```
+
+**Result – Correlation analysis** Spearman's correlation analysis revealed a very strong positive association between weight and height (rho = 0.930, p less than 0.001). This indicates that taller individuals tended to have higher body weight in this sample. No statistically significant correlations were observed between the other pairs of numerical variables (all p-values greater than 0.05). Overall, weight and height showed the strongest relationship among the variables examined.
