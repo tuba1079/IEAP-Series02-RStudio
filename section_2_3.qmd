@@ -1,0 +1,6 @@
+---
+title: "Testing some stereotypes"
+format: pdf
+editor: visual
+---
+
