@@ -135,3 +135,26 @@ fisher.test(table(Snore$snore, Snore$tabac))
 **Result – Smoking habits among snorers and non-snorers**
 
 Among non-snorers, 67.7% were smokers, compared with 57.1% among snorers.Fisher's exact test is appropriate because both variables are categorical. The test did not reveal a statistically significant association between snoring and smoking status (p = 0.3827). Therefore, the data do not provide sufficient statistical evidence to conclude that snorers are more likely to smoke.
+
+### Third Stereotype: Are men fatter?
+
+```{r}
+# count observations in each sex category
+table(Snore$sex)
+unique(Snore$sex)
+```
+
+```{r}
+# create the boxplot to look at the difference of both gender's weight
+boxplot(weight ~ sex,
+        data = Snore,
+        xlab = "Sex",
+        ylab = "Weight",
+        main = "Weight comparison between men and women")
+```
+
+```{r}
+# calculate median weight in each sex category
+tapply(Snore$weight, Snore$sex, median)
+
+```
