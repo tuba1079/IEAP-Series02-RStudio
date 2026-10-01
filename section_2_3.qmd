@@ -47,5 +47,17 @@ boxplot(weight ~ snore,
 # Calculate median weight in each group
 tapply(Snore$weight, Snore$snore, median)
 ```
+```{r}
+# Statistical analysis
+# Check normality of weight in each snoring group
+shapiro.test(Snore$weight[Snore$snore == "N"])
+shapiro.test(Snore$weight[Snore$snore == "O"])
+
+# Compare weight between the two independent groups
+wilcox.test(weight ~ snore,
+            data = Snore,
+            exact = FALSE)
+```
+
 
 
