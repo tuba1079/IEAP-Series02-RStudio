@@ -20,3 +20,5 @@ format:
 
 
 **What is a variance? A standard deviation?** The variance is the average squared deviation from the mean, and the standard deviation is its square root, expressed in the same unit as the data. *Reference: Field, A. (2013). Discovering Statistics Using IBM SPSS Statistics, Chapter 2.*
+
+**What is a normal distribution?** A normal distribution is a symmetric, bell-shaped distribution in which most values cluster around the mean. *Reference: STHDA - Normality Test in R*
