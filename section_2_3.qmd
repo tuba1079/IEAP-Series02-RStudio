@@ -62,3 +62,29 @@ wilcox.test(weight ~ snore,
 **Result – Weight comparison** 
 The median weight was 94 among non-snorers and 96 among snorers. The Wilcoxon rank-sum test showed no statistically significant difference in weight between the two groups (W = 1154, p = 0.9079). Therefore, this dataset does not provide statistical evidence supporting the stereotype that snorers are heavier.
 
+
+### Second Stereotype: Are snorers drinking or smoking more?
+
+```{r}
+# Compare alcohol categories between snorers and non-snorers
+table(Snore$snore, Snore$alcool)
+
+# Calculate the proportion of each alcohol category within each snoring group
+alcohol_prop <- prop.table(table(Snore$snore, Snore$alcool), 1)
+
+# Display proportions
+alcohol_prop
+
+# Visualise alcohol categories by snoring status
+barplot(t(alcohol_prop),
+        beside = TRUE,
+        legend.text = TRUE,
+        args.legend = list(title = "Alcohol category"),
+        xlab = "Snoring status",
+        ylab = "Proportion",
+        main = "Alcohol categories by snoring status")
+
+# Calculate mean and median alcohol values for each group
+tapply(Snore$alcool, Snore$snore, mean)
+tapply(Snore$alcool, Snore$snore, median)
+```
