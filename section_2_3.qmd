@@ -59,5 +59,6 @@ wilcox.test(weight ~ snore,
             exact = FALSE)
 ```
 
-
+**Result – Weight comparison** 
+The median weight was 94 among non-snorers and 96 among snorers. The Wilcoxon rank-sum test showed no statistically significant difference in weight between the two groups (W = 1154, p = 0.9079). Therefore, this dataset does not provide statistical evidence supporting the stereotype that snorers are heavier.
 
