@@ -88,3 +88,16 @@ barplot(t(alcohol_prop),
 tapply(Snore$alcool, Snore$snore, mean)
 tapply(Snore$alcool, Snore$snore, median)
 ```
+```{r}
+# Statistical analysis
+# Check normality of alcohol values in each snoring group
+shapiro.test(Snore$alcool[Snore$snore == "N"])
+shapiro.test(Snore$alcool[Snore$snore == "O"])
+
+# Compare alcohol values between the two independent groups
+wilcox.test(alcool ~ snore,
+            data = Snore,
+            exact = FALSE)
+```
+
+
