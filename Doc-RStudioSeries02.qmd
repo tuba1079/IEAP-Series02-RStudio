@@ -12,6 +12,18 @@ format:
     fontsize: 9.5pt
 ---
 
+## 1. Project Overview & Collaboration
+
+- **GitHub Repository:** [IEAP-Series02-RStudio Repository](https://github.com/tuba1079/IEAP-Series02-RStudio)
+
+### Team Workflow Strategy (Git)
+To organize our collaborative work, our team implemented a structured Git and GitHub strategy:
+1. **Repository Setup:** Creation of a shared public repository on GitHub[cite: 1].
+2. **Branching Strategy:** Each team member worked on dedicated feature branches (`zoe-2.1`, `Elouan-branch`, `Tuba-section-2.3`) to develop individual sections and avoid simultaneous conflicts on the main file[cite: 1].
+3. **Commit Discipline:** Regular commits with explicit messages reflecting the progress made on each question.
+4. **Integration:** Merging contributions back into the `main` branch via coordinated reviews and integration steps.
+
+
 ## 2 Statistical tests: comparison of medians (or means?)
 
 ### 2.1 Make clear what is a statistical test, and when to use it.
