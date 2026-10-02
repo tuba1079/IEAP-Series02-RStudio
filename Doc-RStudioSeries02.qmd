@@ -14,20 +14,25 @@ format:
 
 ## 1. Project Overview & Collaboration
 
-- **GitHub Repository:** [IEAP-Series02-RStudio Repository](https://github.com/tuba1079/IEAP-Series02-RStudio)
+**GitHub Repository:** 
+[https://github.com/tuba1079/IEAP-Series02-RStudio](https://github.com/tuba1079/IEAP-Series02-RStudio)
 
 ### Team Workflow Strategy (Git)
 To organize our collaborative work, our team implemented a structured Git and GitHub strategy:
-1. **Repository Setup:** Creation of a shared public repository on GitHub[cite: 1].
-2. **Branching Strategy:** Each team member worked on dedicated feature branches (`zoe-2.1`, `Elouan-branch`, `Tuba-section-2.3`) to develop individual sections and avoid simultaneous conflicts on the main file[cite: 1].
+
+1. **Repository Setup:** Creation of a shared public repository on GitHub.
+
+2. **Branching Strategy:** Each team member worked on dedicated feature branches (`zoe-2.1`, `Elouan-branch`, `Tuba-section-2.3`) to develop individual sections and avoid simultaneous conflicts on the main file.
+
 3. **Commit Discipline:** Regular commits with explicit messages reflecting the progress made on each question.
+
 4. **Integration:** Merging contributions back into the `main` branch via coordinated reviews and integration steps.
 
 ### Challenges Encountered and Lessons Learned
 - **Version Control Coordination:** Managing branch synchronization and avoiding merge conflicts required clear communication regarding file modifications.
 - **Quarto Rendering:** Ensuring that all statistical outputs and plots rendered correctly into the final PDF format.
 
-## 2 Statistical tests: comparison of medians (or means?)
+## 2. Statistical tests: comparison of medians (or means?)
 
 ### 2.1 Make clear what is a statistical test, and when to use it.
 
@@ -381,11 +386,11 @@ for (pair in correlation_pairs) {
 
 ## 4. Evaluation Checklist
 
-- [x] Authors and date in the YAML header
-- [x] Clickable link to the public GitHub repository
-- [x] Analysis of team workflow and Git strategy
-- [x] Discussion on challenges encountered and lessons learned
-- [x] Complete R code and accurate answers to questions
-- [x] Data sources and origins specified
-- [x] Scientific references included
-- [x] Evaluation checklist completed
+- Authors and date in the YAML header
+- Clickable link to the public GitHub repository
+- Analysis of team workflow and Git strategy
+- Discussion on challenges encountered and lessons learned
+- Complete R code and accurate answers to questions
+- Data sources and origins specified
+- Scientific references included
+- Evaluation checklist completed
