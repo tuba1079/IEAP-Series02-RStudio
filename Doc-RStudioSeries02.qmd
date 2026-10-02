@@ -23,6 +23,9 @@ To organize our collaborative work, our team implemented a structured Git and Gi
 3. **Commit Discipline:** Regular commits with explicit messages reflecting the progress made on each question.
 4. **Integration:** Merging contributions back into the `main` branch via coordinated reviews and integration steps.
 
+### Challenges Encountered and Lessons Learned
+- **Version Control Coordination:** Managing branch synchronization and avoiding merge conflicts required clear communication regarding file modifications.
+- **Quarto Rendering:** Ensuring that all statistical outputs and plots rendered correctly into the final PDF format.
 
 ## 2 Statistical tests: comparison of medians (or means?)
 
