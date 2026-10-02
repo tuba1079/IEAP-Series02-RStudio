@@ -368,3 +368,8 @@ for (pair in correlation_pairs) {
 
 **Result – Correlation analysis** Spearman's correlation analysis revealed a very strong positive association between weight and height (rho = 0.930, p less than 0.001). This indicates that taller individuals tended to have higher body weight in this sample. No statistically significant correlations were observed between the other pairs of numerical variables (all p-values greater than 0.05). Overall, weight and height showed the strongest relationship among the variables examined.
 
+## 3. Data Sources & References
+
+### Data Sources
+- **PrePost Dataset:** Provided via Université de Montpellier course materials (Moodle platform).
+- **Snore Dataset (`snore.txt`):** Provided via Université de Montpellier course materials (Moodle platform).
