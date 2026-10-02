@@ -378,3 +378,14 @@ for (pair in correlation_pairs) {
 ### Scientific References & DOIs
 1. Field, A. (2013). *Discovering Statistics Using IBM SPSS Statistics*. SAGE Publications. (ISBN: 978-1-4462-4918-5).
 2. STHDA (Statistical tools for high-throughput data analysis). *Normality Test in R* & *Non-parametric Tests*. Available online: [http://www.sthda.com/](http://www.sthda.com/)
+
+## 4. Evaluation Checklist
+
+- [x] Authors and date in the YAML header
+- [x] Clickable link to the public GitHub repository
+- [x] Analysis of team workflow and Git strategy
+- [x] Discussion on challenges encountered and lessons learned
+- [x] Complete R code and accurate answers to questions
+- [x] Data sources and origins specified
+- [x] Scientific references included
+- [x] Evaluation checklist completed
