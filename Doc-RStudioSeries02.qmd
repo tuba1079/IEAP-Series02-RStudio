@@ -373,3 +373,8 @@ for (pair in correlation_pairs) {
 ### Data Sources
 - **PrePost Dataset:** Provided via Université de Montpellier course materials (Moodle platform).
 - **Snore Dataset (`snore.txt`):** Provided via Université de Montpellier course materials (Moodle platform).
+
+
+### Scientific References & DOIs
+1. Field, A. (2013). *Discovering Statistics Using IBM SPSS Statistics*. SAGE Publications. (ISBN: 978-1-4462-4918-5).
+2. STHDA (Statistical tools for high-throughput data analysis). *Normality Test in R* & *Non-parametric Tests*. Available online: [http://www.sthda.com/](http://www.sthda.com/)
